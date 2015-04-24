@@ -3,4 +3,4 @@
 set -e
 
 echo "Stopping the devops docker containers"
-docker stop jenkins gerrit nexus gitlab
+docker stop nexus jenkins gerrit gitlab redis mysql

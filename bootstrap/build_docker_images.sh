@@ -2,6 +2,7 @@
 
 set -e
 
+GITLAB_VERSION=${GITLAB_VERSION:-7.9.4}
 
 #
 # Discover the APP_BASE from the location of this script.
@@ -42,8 +43,11 @@ docker build -t fabric8:gerrit $APP_BASE/gerrit-docker
 echo "building the Docker image for jenkins"
 docker build -t fabric8:jenkins $APP_BASE/jenkins-docker
 
+echo "pulling the Docker image for redis - used by gitlab"
+docker pull sameersbn/redis:latest
+
 echo "pulling the Docker image for gitlab"
-docker pull sameersbn/gitlab:7.2.2
+docker pull sameersbn/gitlab:$GITLAB_VERSION
 
 echo "pulling the Docker image for nexus"
 docker pull pantinor/centos-nexus:latest

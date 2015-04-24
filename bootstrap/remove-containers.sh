@@ -3,4 +3,4 @@
 set -e
 
 echo "Remove the devops docker containers"
-docker rm jenkins gerrit nexus gitlab
+docker rm nexus jenkins gerrit gitlab redis mysql
